@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Kamu ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+background:linear-gradient(-45deg,#ff4d6d,#ff8fa3,#ffc2d1,#ffe5ec);
+background-size:400% 400%;
+animation:bg 12s infinite alternate;
+}
+
+@keyframes bg{
+0%{background-position:left;}
+100%{background-position:right;}
+}
+
+.container{
+text-align:center;
+color:white;
+z-index:5;
+padding:20px;
+}
+
+h1{
+font-size:50px;
+margin-bottom:20px;
+text-shadow:0 0 15px white;
+}
+
+#typing{
+font-size:25px;
+font-weight:500;
+min-height:40px;
+}
+
+button{
+margin-top:35px;
+padding:15px 40px;
+font-size:20px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+background:white;
+color:#ff4d6d;
+transition:.4s;
+box-shadow:0 0 20px rgba(255,255,255,.5);
+}
+
+button:hover{
+transform:scale(1.1);
+background:#ff4d6d;
+color:white;
+}
+
+.popup{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) scale(0);
+background:white;
+padding:30px;
+border-radius:20px;
+width:320px;
+text-align:center;
+transition:.5s;
+box-shadow:0 0 30px pink;
+z-index:20;
+}
+
+.popup.show{
+transform:translate(-50%,-50%) scale(1);
+}
+
+.popup h2{
+color:#ff4d6d;
+margin-bottom:15px;
+}
+
+.popup p{
+color:#555;
+margin-bottom:20px;
+}
+
+.popup button{
+margin-top:10px;
+}
+
+.heart{
+position:absolute;
+color:pink;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-10vh) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(110vh) rotate(360deg);
+opacity:0;
+}
+}
+
+.bear{
+font-size:90px;
+animation:dance 1s infinite alternate;
+margin-bottom:15px;
+}
+
+@keyframes dance{
+0%{
+transform:rotate(-8deg);
+}
+100%{
+transform:rotate(8deg);
+}
+}
+
+.love{
+font-size:30px;
+animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+50%{
+transform:scale(1.2);
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="bear">🐻</div>
+
+<h1>Hai Little girl ❤️</h1>
+
+<div id="typing"></div>
+
+<div class="love">💕💕💕</div>
+
+<button onclick="buka()">Klik Aku 💖</button>
+
+</div>
+
+<div class="popup" id="popup">
+
+<h2>Untuk Kamu Little girl ❤️</h2>
+
+<p>
+
+Terima kasih sudah hadir di hidupku.
+<br><br>
+Semoga kita selalu bersama,
+saling menjaga,
+saling menguatkan,
+dan saling mencintai sampai kapan pun.
+❤️🥰
+
+</p>
+
+<button onclick="tutup()">Aku Sayang Banget Sama Kamu ❤️</button>
+
+</div>
+
+<script>
+
+const text="Kamu adalah alasan kenapa aku selalu tersenyum setiap hari 🥰❤️";
+
+let i=0;
+
+function ketik(){
+
+if(i<text.length){
+document.getElementById("typing").innerHTML+=text.charAt(i);
+i++;
+setTimeout(ketik,70);
+}
+
+}
+
+ketik();
+
+function buka(){
+document.getElementById("popup").classList.add("show");
+}
+
+function tutup(){
+document.getElementById("popup").classList.remove("show");
+}
+
+function hati(){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(20+Math.random()*40)+"px";
+
+heart.style.animationDuration=(4+Math.random()*4)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},8000);
+
+}
+
+setInterval(hati,250);
+
+</script>
+
+</body>
+</html>
